@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Accordion Simple | 001</title>
+  </head>
+  <style>
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .accordion-item {
+      padding: 1px 12px;
+    }
+    .accordion-item h3 {
+      padding: 8px 12px;
+      font-size: 16px;
+      background: rgb(175, 175, 175);
+      color: #333;
+    }
+    .accordion-item p {
+      display: none;
+      padding: 8px 12px;
+      background: #f1f1f1;
+      color: #333;
+    }
+    .accordion-item p.active {
+      display: block;
+      animation: fade 300ms forwards;
+    }
+
+    @keyframes fade {
+      from {
+        transform: translateX(-15px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0px);
+        opacity: 1;
+      }
+    }
+  </style>
+  
+  <body>
+    <div class="accordion">
+      <div class="accordion-item">
+        <h3>
+          Lorem ipsum dolor sit amet consectetur 1
+        </h3>
+        <p>
+          adipisicing elit. Debitis itaque doloremque, dicta temporibus iusto
+          eaque nemo alias, hic, sequi dignissimos omnis? Voluptates nulla
+          nostrum adipisci magnam quam, accusantium maiores repudiandae?
+        </p>
+      </div>
+
+      <div class="accordion-item">
+        <h3>
+          Lorem ipsum dolor sit amet consectetur 2
+        </h3>
+        <p>
+          adipisicing elit. Debitis itaque doloremque, dicta temporibus iusto
+          eaque nemo alias, hic, sequi dignissimos omnis? Voluptates nulla
+          nostrum adipisci magnam quam, accusantium maiores repudiandae?
+        </p>
+      </div>
+
+      <div class="accordion-item">
+        <h3>
+          Lorem ipsum dolor sit amet consectetur 3
+        </h3>
+        <p>
+          adipisicing elit. Debitis itaque doloremque, dicta temporibus iusto
+          eaque nemo alias, hic, sequi dignissimos omnis? Voluptates nulla
+          nostrum adipisci magnam quam, accusantium maiores repudiandae?
+        </p>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      // Accordion
+      const Accordion = el => {
+        let elAll = document.querySelectorAll(el);
+
+        elAll.forEach(i => {
+          i.addEventListener("click", function(e) {
+            e.preventDefault();
+            this.classList.toggle("active");
+            let childElement = this.nextElementSibling;
+            childElement.classList.toggle("active");
+          });
+        });
+      };
+      // Iniciolizando window
+      window.onload = function() {
+        Accordion("h3");
+      };
+    </script>
+  </body>
+</html>
